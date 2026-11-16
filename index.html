@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>음운 탐구 활동장 체험판</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>음운 탐구 활동장</h1>
+      <p>중학교 2학년 국어 · 음운의 개념 → 모음 체계 → 자음 체계 → 한글의 창제 원리</p>
+    </div>
+  </header>
+  <nav class="tabs" aria-label="차시">
+    <a href="#l1" data-tab="l1"><span class="n">1</span>음운의 개념</a>
+    <a href="#l2" data-tab="l2"><span class="n">2</span>모음 체계표</a>
+    <a href="#l3" data-tab="l3"><span class="n">3</span>자음 체계표</a>
+    <a href="#draw" data-tab="draw"><span class="n">4</span>체계표 그리기</a>
+    <a href="#l3r" data-tab="l3r"><span class="n">5</span>음운 방탈출</a>
+    <a href="#spirit" data-tab="spirit"><span class="n">6</span>한글의 창제 정신</a>
+    <a href="#l4" data-tab="l4"><span class="n">7</span>한글의 창제 원리</a>
+  </nav>
+
+  <!-- ===== 1차시 ===== -->
+  <section class="lesson" id="tab-l1" style="--acc:var(--l1)">
+    <div class="lesson-head"><span class="eyebrow">1차시 · 음운의 개념</span><h2>한 음운만 바꿔라! 음운 사다리</h2><span class="q">말의 뜻을 바꾸는 가장 작은 소리는 무엇일까?</span></div>
+    <div class="block">
+      <h3><span class="stage lesson-s">수업</span>뜻을 갈라 놓은 범인을 찾아라</h3>
+      <p class="note">두 낱말을 소리 내어 읽고, 뜻을 다르게 만든 소리와 그 종류를 고르세요.</p>
+      <div class="scroll"><table id="culprit"><thead><tr><th>낱말 쌍</th><th>뜻을 가른 소리</th><th>범인은?</th></tr></thead><tbody></tbody></table></div>
+      <div class="checkbar"><button class="btn" data-check="culprit">확인하기</button><span class="result" id="res-culprit"></span></div>
+      <div class="field"><label for="t-l1-def">내 말로 정리: 음운이란</label><input id="t-l1-def" type="text" data-save placeholder="음운이란 …"></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage">활동</span>음운 사다리 오르기</h3>
+      <p class="note">규칙: 한 칸 오를 때 음운을 <b>하나만 바꿔</b> 새 낱말을 만들어요. 넣거나 빼면 안 되고, 진짜 낱말인지는 모둠이 확인해요.</p>
+      <div class="ladders">
+        <div><h3 style="font-size:16px">라운드 1 · 가장 긴 사다리</h3><p class="note">'물'에서 출발해 최대한 높이!</p><div class="ladder" id="lad1"></div><p class="result" id="lad1-sum"></p></div>
+        <div><h3 style="font-size:16px">라운드 2 · 가장 짧은 길</h3><p class="note">'물'에서 '밤'까지 몇 칸 만에 갈까?</p><div class="ladder" id="lad2"></div><p class="result" id="lad2-sum"></p></div>
+      </div>
+    </div>
+    <div class="block">
+      <h3><span class="stage review">복습</span>음운은 몇 개일까?</h3>
+      <div class="row" id="counts"></div>
+      <div class="checkbar"><button class="btn" data-check="counts">확인하기</button><span class="result" id="res-counts"></span></div>
+      <div class="hint"><b>출구 카드</b> 최소 대립쌍을 하나 만들어 보세요.
+        <div class="row" style="margin-top:6px"><input id="t-l1-pa" type="text" data-save placeholder="낱말 1" style="width:110px" aria-label="낱말 1"><span>—</span><input id="t-l1-pb" type="text" data-save placeholder="낱말 2" style="width:110px" aria-label="낱말 2"><span class="mark" id="pair-mark"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2차시 ===== -->
+  <section class="lesson" id="tab-l2" style="--acc:var(--l2)" hidden>
+    <div class="lesson-head"><span class="eyebrow">2차시 · 모음 체계표</span><h2>모음 21개, 무엇으로 나눌까?</h2><span class="q">모음끼리는 무엇으로 서로 구별될까?</span></div>
+    <div class="block">
+      <h3><span class="stage">활동 1</span>입 모양을 보며 두 묶음으로 나누기</h3>
+      <p class="note">모음 칩을 누른 뒤, 들어갈 묶음을 누르세요. 'ㅑ'를 아주 천천히 '이~아'로 늘여 보면 도움이 돼요.</p>
+      <div id="board-l2sort"></div>
+      <div class="hint"><b>이름 붙이기 힌트</b> '단(單)'은 '하나', '이중(二重)'은 '두 겹'이라는 뜻이에요. 두 묶음에 어울리는 이름은?
+        <div class="row" style="margin-top:6px"><span>A 묶음: (</span><input id="t-l2-na" type="text" data-save style="width:90px" aria-label="A 묶음 이름"><span>)모음</span><span style="width:12px"></span><span>B 묶음: (</span><input id="t-l2-nb" type="text" data-save style="width:90px" aria-label="B 묶음 이름"><span>)모음</span></div>
+      </div>
+      <div class="checkbar"><button class="btn" data-check="l2sort">확인하기</button><span class="result" id="res-l2sort"></span></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage">활동 2</span>A 묶음 모음 10개 관찰하기</h3>
+      <p class="note">묶음마다 안내대로 모음을 이어서 소리 내 보며, 한 번에 무엇이 바뀌는지 느껴 보세요. 그다음 알맞은 것을 눌러요.</p>
+      <div class="how3">
+        <div><b>① 입술 모양</b><span>거울을 보며 입술이 <b>평평한지, 둥근지</b> 봐요.</span></div>
+        <div><b>② 혀의 위치</b><span>'이→으'처럼 이어서 소리 내며 혀가 <b>앞에 있는지, 뒤로 가는지</b> 느껴요.</span></div>
+        <div><b>③ 혀의 높이</b><span>턱 밑에 손을 대요. 턱이 거의 안 내려가면 <b>높음</b>, 많이 내려가면 <b>낮음</b>이에요.</span></div>
+      </div>
+      <div class="obswrap">
+        <div class="scroll"><table id="vobs" class="obs"><thead><tr><th>모음</th><th>① 입술 모양</th><th>② 혀의 위치</th><th>③ 혀의 높이</th></tr></thead><tbody></tbody></table></div>
+        <aside class="mview" aria-live="polite">
+          <div class="mview-t">입 안 들여다보기</div>
+          <svg class="mv-side" viewBox="60 100 560 330" role="img" aria-label="입 안을 옆에서 본 그림">
+            <path class="mm-skin" d="M300 0 C210 0 158 30 146 74 L126 112 L74 160 L116 174 L108 182 C95 187 95 198 110 202 L110 331 C96 336 97 350 112 356 L126 398 C135 430 175 452 230 460 L700 460 L700 0 Z"/>
+            <path class="mm-cave" d="M110 202 L132 204 C210 150 380 112 470 140 C520 152 545 190 552 232 C575 250 590 280 590 320 L590 460 L552 460 L552 372 C540 330 500 304 430 300 C330 296 200 302 135 322 L110 331 Z"/>
+            <path class="mm-line" d="M132 204 C210 150 380 112 470 140 C520 152 545 190 552 232 C575 250 590 280 590 320 L590 460"/>
+            <path id="mv-tongue" class="mm-tongue mv-anim" d="M140 330 C180 330 245 300 335 300 C425 300 545 330 552 400 L552 460 L210 460 C160 440 145 390 140 330 Z"/>
+            <path id="mv-tline" class="mm-line mv-anim" d="M140 330 C180 330 245 300 335 300 C425 300 545 330 552 400 L552 460"/>
+            <path id="mv-lip-u" class="mv-lip mv-anim" d=""/><path id="mv-lipo-u" class="mv-lipo mv-anim" d=""/>
+            <path id="mv-lip-l" class="mv-lip mv-anim" d=""/><path id="mv-lipo-l" class="mv-lipo mv-anim" d=""/>
+            <circle id="mv-dot" class="mv-dot mv-anim" cx="335" cy="300" r="0"/>
+            <text x="270" y="135" class="mv-t">입천장</text><text x="64" y="272" class="mv-t">입술</text><text x="330" y="410" class="mv-t">혀</text>
+          </svg>
+          <div class="mv-front">
+            <svg viewBox="0 0 120 80" role="img" aria-label="입술을 앞에서 본 모양"><path id="mv-lipf" class="mv-lipf mv-anim" d=""/><path id="mv-hole" class="mv-hole mv-anim" d=""/><path id="mv-lipln" class="mv-lipln mv-anim" d=""/></svg>
+            <span>입술을 앞에서 본 모양</span>
+          </div>
+          <div class="mv-cap" id="mv-cap">표에서 모음 글자를 눌러 보세요.</div>
+          <p class="note small-n">먼저 직접 소리 내 보고 고른 다음, 눌러서 확인해요.</p>
+        </aside>
+      </div>
+      <div class="checkbar"><button class="btn" data-check="vobs">확인하기</button><span class="result" id="res-vobs"></span></div>
+      <div class="hint"><b>이름 붙이기 힌트</b> 平(평)=평평하다 · 圓(원)=둥글다 · 脣(순)=입술 · 前(전)=앞 · 後(후)=뒤 · 舌(설)=혀
+        <div class="row" style="margin-top:8px">
+          <span class="term">평평한 입술 → (<input id="t-l2-lip1" type="text" data-save aria-label="평평한 입술 모음 이름">)모음</span>
+          <span class="term">둥근 입술 → (<input id="t-l2-lip2" type="text" data-save aria-label="둥근 입술 모음 이름">)모음</span>
+          <span class="term">혀가 앞 → (<input id="t-l2-front" type="text" data-save aria-label="혀가 앞인 모음 이름">)모음</span>
+          <span class="term">혀가 뒤 → (<input id="t-l2-back" type="text" data-save aria-label="혀가 뒤인 모음 이름">)모음</span>
+        </div>
+      </div>
+      <div class="field"><label for="t-l2-hold">'ㅚ, ㅟ'를 관찰할 때 헷갈린 점이 있었나요?</label><textarea id="t-l2-hold" rows="2" data-save></textarea></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage review">복습 1</span>모음 스무고개</h3>
+      <p class="note">컴퓨터가 A 묶음 모음 하나를 몰래 골랐어요. 기준이 담긴 질문만 할 수 있어요. 적은 질문으로 맞혀 보세요.</p>
+      <div class="twenty" id="twenty"></div>
+      <div class="field"><label for="t-l2-why">어떤 모음은 왜 질문 두 번 만에 맞힐 수 있을까?</label><input id="t-l2-why" type="text" data-save></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage review">복습 2</span>관찰 결과를 표로 옮기기</h3>
+      <p class="note">입 안을 옆에서 본 그림이에요. 칸이 놓인 자리가 곧 그 모음을 낼 때 혀가 있는 자리예요. <b>왼쪽은 입 앞쪽, 오른쪽은 목 쪽, 위는 혀가 높을 때, 아래는 혀가 낮을 때</b>예요.</p>
+      <div class="scroll"><div class="mm-wrap">
+        <div class="mm-heads" id="mm-heads"></div>
+        <div class="mm" id="vtable"><svg viewBox="0 0 700 460" aria-hidden="true">
+  <path class="mm-skin" d="M300 0 C210 0 158 30 146 74 L126 112 L74 160 L116 174 L108 182 C95 187 95 198 110 202 L110 331 C96 336 97 350 112 356 L126 398 C135 430 175 452 230 460 L700 460 L700 0 Z"/>
+  <path class="mm-cave" d="M110 202 L132 204 C210 150 380 112 470 140 C520 152 545 190 552 232 C575 250 590 280 590 320 L590 460 L552 460 L552 372 C540 330 500 304 430 300 C330 296 200 302 135 322 L110 331 Z"/>
+  <path class="mm-tongue" d="M135 322 C200 302 330 296 430 300 C500 304 540 330 552 372 L552 460 L210 460 C160 440 140 390 135 322 Z"/>
+  <path class="mm-line" d="M300 0 C210 0 158 30 146 74 L126 112 L74 160 L116 174 L108 182 C95 187 95 198 110 202"/>
+  <path class="mm-line" d="M110 331 C96 336 97 350 112 356 L126 398 C135 430 175 452 230 460"/>
+  <path class="mm-line" d="M132 204 C210 150 380 112 470 140 C520 152 545 190 552 232 C575 250 590 280 590 320 L590 460"/>
+  <path class="mm-line" d="M135 322 C200 302 330 296 430 300 C500 304 540 330 552 372 L552 460"/>
+  <path class="mm-line thin" d="M128 150 C240 105 430 92 560 140"/>
+  <rect class="mm-teeth" x="112" y="200" width="18" height="16" rx="3"/>
+  <rect class="mm-teeth" x="115" y="314" width="18" height="16" rx="3"/>
+  <text x="18" y="270" class="mm-t">입술</text>
+  <text x="250" y="118" class="mm-t">센입천장</text>
+  <text x="470" y="128" class="mm-t">여린입천장</text>
+  <text x="320" y="390" class="mm-t">혀</text>
+  <text x="615" y="420" class="mm-t">목</text>
+</svg></div>
+      </div></div>
+      <p class="note">모음이 없는 칸은 비워 두세요.</p>
+      <div class="checkbar"><button class="btn" data-check="vtable">확인하기</button><span class="result" id="res-vtable"></span></div>
+      <div class="field"><label for="t-l2-empty">표에서 비어 있는 칸은 어디이고, 왜 비었을까?</label><textarea id="t-l2-empty" rows="2" data-save></textarea></div>
+      <div class="field"><label for="t-l2-exit">출구 질문: 'ㅣ'와 'ㅟ'의 차이를 표의 기준으로 설명하기</label><input id="t-l2-exit" type="text" data-save></div>
+    </div>
+  </section>
+
+  <!-- ===== 3차시 ===== -->
+  <section class="lesson" id="tab-l3" style="--acc:var(--l3)" hidden>
+    <div class="lesson-head"><span class="eyebrow">3차시 · 자음 체계표</span><h2>자음 마을에 이사 온 친구들</h2><span class="q">19개의 자음은 어떤 기준으로 서로 묶일까?</span></div>
+    <div class="block">
+      <h3><span class="stage lesson-s">수업</span>실험실: 직접 소리 내 보고 느낀 점 적기</h3>
+      <div class="grid2">
+        <div class="field"><label for="t-l3-e1">얇은 휴지를 입 앞에 대고 '브 · 쁘 · 프'</label><input id="t-l3-e1" type="text" data-save></div>
+        <div class="field"><label for="t-l3-e2">코를 막고 '므 · 느 · 응'</label><input id="t-l3-e2" type="text" data-save></div>
+        <div class="field"><label for="t-l3-e3">소리를 길게 늘이기 '브 · 스 · 흐'</label><input id="t-l3-e3" type="text" data-save></div>
+        <div class="field"><label for="t-l3-e4">혀끝을 윗잇몸에 대고 '르'</label><input id="t-l3-e4" type="text" data-save></div>
+      </div>
+    </div>
+    <div class="block">
+      <h3><span class="stage">활동</span>세 단계로 자음 나누기</h3>
+      <p class="note">교과서처럼 자음을 <b>① 소리 나는 위치</b> → <b>② 소리 내는 방법</b> → <b>③ 소리의 세기</b> 순서로 한 번씩 나누어 봐요. 단계마다 [확인하기]를 누르고 틀린 글자는 고친 뒤 다음 단계로 넘어가요. 자음 칩을 누르면 '입 안 들여다보기'에 그 소리를 낼 때의 입 안이 보여요.</p>
+      <div class="obswrap">
+        <div class="stepcol">
+          <section class="step" aria-labelledby="st1-h">
+            <h4 id="st1-h"><span class="stepno">1단계</span>소리 나는 위치에 따라 나누기 <span class="tb">교과서: 조음 위치</span></h4>
+            <p class="note">'ㅡ'를 붙여 '브, 드, 즈, 그, 흐'처럼 소리 내 보세요. 입 안 <b>어디에서</b> 공기가 막히거나 좁아지나요? 19개 자음을 다섯 집에 나눠 넣고, 힌트를 보며 집 이름도 지어 보세요.</p>
+            <div id="board-l3pos"></div>
+            <div class="hint"><b>이름 붙이기 힌트</b> 집 이름은 소리가 나는 곳의 이름 뒤에 '소리'를 붙여 지어요.<br>윗니 뒤의 불룩한 살 = 잇몸 · 입천장 앞쪽의 딱딱한 부분 = 센입천장 · 입천장 뒤쪽의 말랑한 부분 = 여린입천장 · 목 안에서 떨리며 소리를 내는 곳 = 목청</div>
+            <div class="checkbar"><button class="btn" data-check="l3pos">1단계 확인하기</button><span class="result" id="res-l3pos"></span></div>
+          </section>
+          <section class="step" aria-labelledby="st2-h">
+            <h4 id="st2-h"><span class="stepno">2단계</span>소리 내는 방법에 따라 나누기 <span class="tb">교과서: 조음 방법</span></h4>
+            <p class="note">이번에는 위치는 잊고 <b>공기를 어떻게 내보내는지</b>만 생각해요. 수업 시간의 휴지 실험, 코 막기 실험, 소리 늘이기 실험을 떠올려 보세요.</p>
+            <div id="board-l3man"></div>
+            <div class="hint"><b>이름 붙이기 힌트</b> 층 이름은 한자로 짓고, 끝에 '음(音, 소리)'을 붙여요.<br>破(파) = 깨뜨리다 · 裂(열) = 찢어지다 · 摩(마) = 문지르다 · 擦(찰) = 비비다 · 鼻(비) = 코 · 流(유) = 흐르다</div>
+            <div class="checkbar"><button class="btn" data-check="l3man">2단계 확인하기</button><span class="result" id="res-l3man"></span></div>
+          </section>
+          <section class="step" aria-labelledby="st3-h">
+            <h4 id="st3-h"><span class="stepno">3단계</span>소리의 세기에 따라 나누기 <span class="tb">교과서: 소리의 세기</span></h4>
+            <p class="note">얇은 휴지를 입 앞에 대고 '바 · 빠 · 파', '다 · 따 · 타'를 소리 내 보세요. 휴지가 많이 흔들리는 소리, 목에 힘이 들어가 단단해지는 소리를 찾아요. 2단계의 4층과 5층 소리처럼 목청이 떨리며 울리는 소리는 세기로 나누지 않고 따로 모아요.</p>
+            <div id="board-l3str"></div>
+            <div class="hint"><b>이름 붙이기 힌트</b> 칸 이름은 소리의 느낌을 나타내는 우리말 뒤에 '소리'를 붙여 지어요.<br>예사롭다 = 보통이다, 흔하다 · 되다 = 단단하고 빡빡하다 · 거세다 = 거칠고 세다 · 울리다 = 떨려서 소리가 퍼지다</div>
+            <div class="checkbar"><button class="btn" data-check="l3str">3단계 확인하기</button><span class="result" id="res-l3str"></span></div>
+          </section>
+        </div>
+        <aside class="mview" aria-live="polite">
+          <div class="mview-t">입 안 들여다보기</div>
+          <svg class="mv-side" viewBox="40 90 520 330" role="img" aria-label="자음을 낼 때 입 안을 옆에서 본 그림">
+            <defs><marker id="cv-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" class="cv-ahead"/></marker></defs>
+            <path class="mm-skin" d="M250 0 C180 0 140 25 130 60 L112 95 L66 128 L104 140 L100 176 L100 226 L112 262 C116 300 140 330 190 340 L260 345 L300 420 L600 420 L600 0 Z"/>
+            <path class="cv-nose" d="M92 150 C200 122 400 112 520 168"/>
+            <path class="mm-cave" d="M112 200 L125 196 C190 150 260 128 330 128 C380 128 410 134 425 140 C470 148 525 165 530 205 L530 420 L495 420 L495 330 C495 262 460 214 400 206 C300 196 170 212 125 222 L112 214 Z"/>
+            <path class="mm-line" d="M125 196 C190 150 260 128 330 128 C380 128 410 134 425 140"/>
+            <path id="cv-velum" class="cv-velum mv-anim" d="M425 140 C450 145 472 160 480 190"/>
+            <path class="mm-line" d="M520 168 C528 180 530 195 530 205 L530 420"/>
+            <path id="cv-tongue" class="mm-tongue mv-anim" d="M125 222 C170 212 300 196 400 206 C460 214 495 262 495 330 L495 420 L170 420 C135 380 120 300 125 222 Z"/>
+            <path id="cv-tline" class="mm-line mv-anim" d="M125 222 C170 212 300 196 400 206 C460 214 495 262 495 330 L495 420"/>
+            <path class="cv-glottis" d="M498 360 L512 352 M498 368 L512 376"/>
+            <rect class="mm-teeth" x="110" y="186" width="14" height="13" rx="3"/>
+            <rect class="mm-teeth" x="112" y="216" width="14" height="13" rx="3"/>
+            <path id="cv-lip-u" class="mv-lip mv-anim" d=""/><path id="cv-lipo-u" class="mv-lipo mv-anim" d=""/>
+            <path id="cv-lip-l" class="mv-lip mv-anim" d=""/><path id="cv-lipo-l" class="mv-lipo mv-anim" d=""/>
+            <path id="cv-air" class="cv-air" d="" marker-end="url(#cv-arrow)"/>
+            <circle id="cv-hit" class="cv-hit mv-anim" cx="136" cy="198" r="0"/>
+            <text x="250" y="118" class="mv-t">입천장</text><text x="420" y="122" class="mv-t">여린</text><text x="290" y="300" class="mv-t">혀</text><text x="540" y="345" class="mv-t">목청</text><text x="150" y="112" class="mv-t">코</text>
+          </svg>
+          <div class="mv-cap" id="cv-cap">왼쪽에서 자음 칩을 누르면 그 소리를 낼 때의 입 안이 보여요.</div>
+          <p class="note small-n">빨간 점은 공기가 막히거나 좁아지는 곳, 화살표는 공기가 나가는 길이에요. 그림을 보고 어디에, 어떻게 넣을지 스스로 정해요.</p>
+        </aside>
+      </div>
+    </div>
+    <div class="block">
+      <h3><span class="stage">완성</span>세 기준을 합쳐 자음 체계표 완성하기</h3>
+      <p class="note">세로 줄은 <b>1단계(위치)</b>, 가로 줄은 <b>2단계(방법)</b>, 같은 방법 안의 작은 줄은 <b>3단계(세기)</b>예요. 줄 이름은 내가 1~3단계에서 지은 이름으로 채워져요. 앞 단계에서 나눈 결과를 떠올리며 자음을 넣어 보세요. 한 칸에는 자음 하나만 들어가요.</p>
+      <div id="board-l3tbl"></div>
+      <div class="checkbar"><button class="btn" data-check="l3tbl">확인하기</button><span class="result" id="res-l3tbl"></span></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage review">정리</span>빈집 탐정</h3>
+      <div class="grid2">
+        <div class="field"><label for="t-l3-q1">완성한 체계표에서 비어 있는 칸(빈방)은 무엇을 뜻할까?</label><textarea id="t-l3-q1" rows="2" data-save></textarea></div>
+        <div class="field"><label for="t-l3-q2">'ㅂ, ㅃ, ㅍ'처럼 한 칸에 사는 세쌍둥이는 무엇이 다를까?</label><textarea id="t-l3-q2" rows="2" data-save></textarea></div>
+      </div>
+      <div class="field"><label for="t-l3-gen">한 문장으로 정리하기: 말소리는</label><input id="t-l3-gen" type="text" data-save></div>
+    </div>
+  </section>
+
+  <!-- ===== 체계표 그리기 ===== -->
+  <section class="lesson" id="tab-draw" style="--acc:var(--l3)" hidden>
+    <div class="lesson-head"><span class="eyebrow">정리 · 모음과 자음 체계표 완성하기</span><h2>체계표 그리기</h2><span class="q">지금까지 찾아낸 모음 체계표와 자음 체계표를 보지 않고 다시 채워 보세요.</span></div>
+    <div class="block">
+      <h3><span class="stage review">그리기 1</span>단모음 체계표</h3>
+      <div class="scroll"><table id="dv" class="drawt"><thead><tr><th>혀의 높이 \ 혀의 위치 · 입술 모양</th><th>전설 · 평순</th><th>전설 · 원순</th><th>후설 · 평순</th><th>후설 · 원순</th></tr></thead><tbody></tbody></table></div>
+      <p class="note">모음이 없는 칸은 비워 두세요.</p>
+      <div class="checkbar"><button class="btn" data-check="dv">확인하기</button><span class="result" id="res-dv"></span></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage review">그리기 2</span>자음 체계표</h3>
+      <div class="scroll"><table id="dc" class="drawt"><thead><tr><th colspan="3">소리 내는 방법 \ 소리 나는 위치</th><th>입술소리</th><th>잇몸소리</th><th>센입천장소리</th><th>여린입천장소리</th><th>목청소리</th></tr></thead><tbody></tbody></table></div>
+      <p class="note">한 칸에 자음 하나씩 써요. 자음이 없는 칸은 비워 두세요.</p>
+      <div class="checkbar"><button class="btn" data-check="dc">확인하기</button><span class="result" id="res-dc"></span></div>
+      <div class="field"><label for="t-dr-q">두 표를 다시 그려 보니, 모음표와 자음표는 무엇이 같고 무엇이 다른가요?</label><textarea id="t-dr-q" rows="2" data-save></textarea></div>
+    </div>
+  </section>
+
+  <!-- ===== 음운 방탈출 ===== -->
+  <section class="lesson" id="tab-l3r" style="--acc:var(--l3r)" hidden>
+    <div class="lesson-head"><span class="eyebrow">정리 게임 · 완성한 체계표로 암호 풀기</span><h2>음운 방탈출</h2><span class="q">체계표를 읽을 줄 알아야 풀리는 암호예요.</span></div>
+    <div class="key">
+      <div><b>자음 = 집번호-층번호 세기</b><br>집: 1 두 입술 · 2 잇몸 · 3 센입천장 · 4 여린입천장 · 5 목청<br>층: 1 파열 · 2 파찰 · 3 마찰 · 4 비음 · 5 유음<br>세기: 예(예사) · 된(된소리) · 거(거센), 비음·유음은 없음</div>
+      <div><b>모음 = 높이 · 혀 · 입술</b><br>높이: 고 · 중 · 저 &nbsp; 혀: 앞 · 뒤 &nbsp; 입술: 평(평평) · 둥(둥근)<br>○ = 소리 없이 자리만 지키는 첫소리 'ㅇ'<br>— = 받침 없음</div>
+    </div>
+    <div class="block">
+      <h3><span class="stage">레벨 2</span>좌표 암호</h3>
+      <div class="cipher" id="cip2"></div>
+      <div class="checkbar"><button class="btn" data-check="cip2">확인하기</button><span class="result" id="res-cip2"></span></div>
+      <div class="field"><label for="t-c2-m">해독한 미션</label><input id="t-c2-m" type="text" data-save></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage">레벨 3</span>특징 암호</h3>
+      <p class="note">이번엔 번호가 없어요. 특징을 머릿속에서 겹쳐 보세요.</p>
+      <div class="cipher" id="cip3"></div>
+      <div class="checkbar"><button class="btn" data-check="cip3">확인하기</button><span class="result" id="res-cip3"></span></div>
+      <div class="field"><label for="t-c3-m">해독한 미션</label><input id="t-c3-m" type="text" data-save></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage review">생각하기</span>탈출 후</h3>
+      <div class="field"><label for="t-c-r1">기호 암호와 특징 암호 중, 표를 이해해야 풀 수 있던 것은? 왜?</label><input id="t-c-r1" type="text" data-save></div>
+      <div class="field"><label for="t-c-r2">자음은 번호 2개, 모음은 특징 3개가 필요했다. 왜 다를까?</label><input id="t-c-r2" type="text" data-save></div>
+      <div class="field"><label for="t-c-own">우리 모둠 암호 만들기 (레벨 3 방식, 한 글자에 한 줄)</label><textarea id="t-c-own" rows="4" data-save placeholder="[잇몸·파열·예사] [낮음·뒤·평평] [받침 없음]"></textarea></div>
+    </div>
+  </section>
+
+  <!-- ===== 창제 정신 ===== -->
+  <section class="lesson" id="tab-spirit" style="--acc:var(--l4)" hidden>
+    <div class="lesson-head"><span class="eyebrow">4차시 · 한글의 창제 정신</span><h2>세종은 왜 한글을 만들었을까?</h2><span class="q">훈민정음 서문에 담긴 마음을 찾아보세요.</span></div>
+    <div class="block">
+      <h3><span class="stage lesson-s">수업</span>훈민정음 서문 읽기</h3>
+      <p class="note">세종이 『훈민정음』 서문(1446)에 쓴 말을 오늘날 말로 옮겼어요. 문장마다 담긴 정신을 하나씩 골라 넣으세요. 네 가지 정신이 모두 숨어 있어요.</p>
+      <div id="board-l4spirit"></div>
+      <div class="checkbar"><button class="btn" data-check="l4spirit">확인하기</button><span class="result" id="res-l4spirit"></span></div>
+      <div class="grid2">
+        <div class="field"><label for="t-l4-sp1">세종은 왜 한글을 만들었을까? 내 말로 한 문장</label><textarea id="t-l4-sp1" rows="2" data-save></textarea></div>
+        <div class="field"><label for="t-l4-sp2">오늘날 우리 주변에서 이 정신을 이어 가는 예</label><textarea id="t-l4-sp2" rows="2" data-save></textarea></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4차시 ===== -->
+  <section class="lesson" id="tab-l4" style="--acc:var(--l4)" hidden>
+    <div class="lesson-head"><span class="eyebrow">4차시 · 한글의 창제 원리</span><h2>세종의 설계도를 풀어라! 한글 설계자</h2><span class="q">세종은 소리의 체계를 글자 모양에 어떻게 담았을까?</span></div>
+    <div class="block">
+      <h3><span class="stage lesson-s">수업</span>세 가지 원리 정리</h3>
+      <div class="grid2">
+        <div class="field"><label for="t-l4-a">상형이란</label><input id="t-l4-a" type="text" data-save></div>
+        <div class="field"><label for="t-l4-b">가획이란</label><input id="t-l4-b" type="text" data-save></div>
+        <div class="field"><label for="t-l4-c">이체란</label><input id="t-l4-c" type="text" data-save></div>
+      </div>
+    </div>
+    <div class="block">
+      <h3><span class="stage">활동 1</span>기본자는 무엇을 본떴을까?</h3>
+      <p class="note">거울로 혀와 입을 보며, 기본자를 알맞은 발음 기관 칸에 넣으세요.</p>
+      <div id="board-l4base"></div>
+      <div class="checkbar"><button class="btn" data-check="l4base">확인하기</button><span class="result" id="res-l4base"></span></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage">활동 2</span>가족 나무: 소리가 세질수록 획이 늘어나요</h3>
+      <p class="note">각 가족에 획을 더한 글자와 모양이 다른 글자(이체자)를 채우세요. 해당 글자가 없으면 칸을 비워 두세요.</p>
+      <div id="board-l4fam"></div>
+      <div class="checkbar"><button class="btn" data-check="l4fam">확인하기</button><span class="result" id="res-l4fam"></span></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage">활동 3</span>자음 마을과 겹쳐 보기</h3>
+      <p class="note">자음 체계표 탭에서 지은 자음 마을 집을 떠올려요. 한 가족의 글자들이 모두 같은 집(소리 나는 자리)에 살고 있나요?</p>
+      <div class="scroll"><table id="same"><thead><tr><th>가족</th><th>모두 같은 집?</th><th>확인</th></tr></thead><tbody></tbody></table></div>
+      <div class="checkbar"><button class="btn" data-check="same">확인하기</button><span class="result" id="res-same"></span></div>
+      <div class="field"><label for="t-l4-why">소리가 변한 걸까, 글자가 틀린 걸까? 내 생각</label><textarea id="t-l4-why" rows="2" data-save></textarea></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage">활동 4</span>하늘 · 땅 · 사람으로 모음 만들기</h3>
+      <div class="row"><span>· 은 (</span><input id="t-l4-s1" type="text" data-save style="width:70px" aria-label="·이 본뜬 것"><span>) ㅡ 는 (</span><input id="t-l4-s2" type="text" data-save style="width:70px" aria-label="ㅡ가 본뜬 것"><span>) ㅣ 는 (</span><input id="t-l4-s3" type="text" data-save style="width:70px" aria-label="ㅣ가 본뜬 것"><span>)을 본떴어요</span></div>
+      <div class="scroll"><table id="combo"><thead><tr><th>합치는 방법</th><th>만들어진 모음</th></tr></thead><tbody></tbody></table></div>
+      <div class="checkbar"><button class="btn" data-check="combo">확인하기</button><span class="result" id="res-combo"></span></div>
+    </div>
+    <div class="block">
+      <h3><span class="stage review">복습</span>「음운!」 카드 게임 뒤, 단원 성찰</h3>
+      <p class="note">카드 게임은 교실에서 모둠별로 해요. 게임이 끝나면 아래를 쓰세요.</p>
+      <div class="field"><label for="t-l4-r1">처음 말소리를 쪼갤 때와 지금, 소리를 보는 눈이 어떻게 달라졌나요?</label><textarea id="t-l4-r1" rows="2" data-save></textarea></div>
+      <div class="field"><label for="t-l4-r2">단원 한 문장: 한글은</label><input id="t-l4-r2" type="text" data-save></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="note">입력한 답은 지금 쓰는 브라우저에만 저장돼요. 다른 사람에게 보내지지 않으니 마음껏 해 보세요.</p>
+    <div class="checkbar"><button type="button" class="btn ghost" id="reset">처음부터 다시 하기</button></div>
+    <div class="confirm" id="reset-confirm" hidden><span>이 브라우저에 저장된 답이 모두 지워져요. 지울까요?</span><button type="button" class="btn" id="reset-yes">모두 지우기</button><button type="button" class="btn ghost" id="reset-no">취소</button></div>
+  </footer>
+</div>
+
+</body>
+</html>
